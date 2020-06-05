@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :pets, dependent: :destroy
   has_many :requests, dependent: :destroy
-  has_many :pets, through: :requests
+  has_many :required_pets, through: :requests, class_name: "Pet"
   has_one_attached :photo
 end
